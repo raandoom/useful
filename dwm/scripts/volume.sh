@@ -1,26 +1,33 @@
+#!/bin/bash
+
 DUNSTIFY="/home/raandoom/.dwm/dunst/dunstify"
+
+ID_PATH="/home/raandoom/.dwm/scripts/.dunst_volume"
 
 if [ "$1" == "down" ]
 then
-    amixer -q set Master 1%- unmute
-    TEXT=$(amixer sget Master | tail -1 | cut -d' ' -f7 | sed 's/\(\[\|\]\)//g')
+    TEXT=$(amixer set Master 2%- unmute | tail -1)
 elif [ "$1" == "up" ]
 then
-    amixer -q set Master 1%+ unmute
-    TEXT=$(amixer sget Master | tail -1 | cut -d' ' -f7 | sed 's/\(\[\|\]\)//g')
+    TEXT=$(amixer set Master 2%+ unmute | tail -1)
 elif [ "$1" == "mute" ]
 then
-    amixer -q set Master toggle
-    TEXT=$(amixer sget Master | tail -1 | cut -d' ' -f8 | sed 's/\(\[\|\]\)//g')
+    TEXT=$(amixer set Master toggle | tail -1)
 else
     echo "Usage volume [up | down | mute]\n"
     exit
 fi
 
-ID=$(cat /home/raandoom/.dwm/scripts/.dunst_volume)
+LVL=$(echo $TEXT | cut -d' ' -f5 | sed 's/\(\[\|%\|\]\)// g')
+STATE=$(echo $TEXT | cut -d' ' -f6 | sed 's/\(\[\|\]\)// g')
+
+ID=$(cat $ID_PATH)
 if [ $ID -gt "0" ]
 then
-    $DUNSTIFY -p -r $ID "Volume: $TEXT" > /home/raandoom/.dwm/scripts/.dunst_volume
-else
-    $DUNSTIFY -p "Volume: $TEXT" > /home/raandoom/.dwm/scripts/.dunst_volume
+    REPLACE="-r $ID"
 fi
+
+$DUNSTIFY $REPLACE -p \
+    -a "<b>VOLUME</b>" $STATE \
+    -h int:value:$LVL \
+    > $ID_PATH
