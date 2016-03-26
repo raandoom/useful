@@ -2,22 +2,22 @@
 
 /* appearance */
 static const char *fonts[] = {
-	"monospace:size=10"
+        "Terminus (TTF):size=12"
 };
-static const char dmenufont[]       = "monospace:size=10";
-static const char normbordercolor[] = "#444444";
-static const char normbgcolor[]     = "#222222";
-static const char normfgcolor[]     = "#bbbbbb";
-static const char selbordercolor[]  = "#005577";
-static const char selbgcolor[]      = "#005577";
-static const char selfgcolor[]      = "#eeeeee";
+static const char dmenufont[]       = "Terminus (TTF):size=12";
+static const char normbordercolor[] = "#444444"; /* unselected border */
+static const char normbgcolor[]     = "#222222"; /* bar */
+static const char normfgcolor[]     = "#bbbbbb"; /* bar or unselected tag text */
+static const char selbordercolor[]  = "#005577"; /* selected border */
+static const char selbgcolor[]      = "#005577"; /* selected tag bg */
+static const char selfgcolor[]      = "#eeeeee"; /* selected tag text */
 static const unsigned int borderpx  = 1;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
 
 /* tagging */
-static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
+static const char *tags[] = { "\u2680", "\u2681", "\u2682", "\u2683", "\u2684", "\u2685" };
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -55,15 +55,15 @@ static const Layout layouts[] = {
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", normbgcolor, "-nf", normfgcolor, "-sb", selbgcolor, "-sf", selfgcolor, NULL };
-static const char *termcmd[]  = { "stterm", NULL };
+static const char *termcmd[]  = { "stterm", "-f", "Terminus:size=18", NULL };
 
 #include <X11/XF86keysym.h>
-static const char *voldown[]    = { "/bin/bash", "~/.dwm/scripts/volume.sh", "down", NULL };
-static const char *volup[]      = { "/bin/bash", "~/.dwm/scripts/volume.sh", "up", NULL };
-static const char *voltoggle[]  = { "/bin/bash", "~/.dwm/scripts/volume.sh", "mute", NULL };
+static const char *voldown[]    = { "/bin/bash", "/home/raandoom/.dwm/scripts/volume.sh", "down", NULL };
+static const char *volup[]      = { "/bin/bash", "/home/raandoom/.dwm/scripts/volume.sh", "up",   NULL };
+static const char *voltoggle[]  = { "/bin/bash", "/home/raandoom/.dwm/scripts/volume.sh", "mute", NULL };
 
-// static const char *brightdown[] = {};
-// static const char *brightup[]   = {};
+static const char *lightdown[]  = { "/bin/bash", "/home/raandoom/.dwm/scripts/backlight.sh", "down", NULL };
+static const char *lightup[]    = { "/bin/bash", "/home/raandoom/.dwm/scripts/backlight.sh", "up",   NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -101,9 +101,11 @@ static Key keys[] = {
 	TAGKEYS(                        XK_9,                      8)
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
 
-        { 0,         XF86XK_AudioLowerVolume,      spawn,          {.v = voldown } },
-        { 0,         XF86XK_AudioRaiseVolume,      spawn,          {.v = volup } },
-        { 0,                XF86XK_AudioMute,      spawn,          {.v = voltoggle } }, 
+        { 0,         XF86XK_AudioLowerVolume,      spawn,          {.v = voldown    } },
+        { 0,         XF86XK_AudioRaiseVolume,      spawn,          {.v = volup      } },
+        { 0,                XF86XK_AudioMute,      spawn,          {.v = voltoggle  } },
+        { 0,        XF86XK_MonBrightnessDown,      spawn,          {.v = lightdown  } },
+        { 0,          XF86XK_MonBrightnessUp,      spawn,          {.v = lightup    } },
 };
 
 /* button definitions */
