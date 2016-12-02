@@ -1,0 +1,5 @@
+#!/bin/bash
+
+. ${PANEL_CONFIG_PATH}/panel_colors
+
+bspc quit

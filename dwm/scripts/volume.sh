@@ -14,7 +14,7 @@ elif [ "$1" == "mute" ]
 then
     TEXT=$(amixer set Master toggle | tail -1)
 else
-    echo "Usage volume [up | down | mute]\n"
+    echo "Usage volume [up | down | mute]"
     exit
 fi
 

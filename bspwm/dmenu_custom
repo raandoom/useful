@@ -1,0 +1,5 @@
+#! /bin/sh
+
+. ${PANEL_CONFIG_PATH}/panel_colors
+# dmenu_run -fn "monofur for Powerline:size=16" -p "run:" -nb "${COLOR_STATE_BG}" -sb "${COLOR_STATE_FG}" -sf "${COLOR_STATE_BG}"
+dmenu_run -fn "NotCourierSans:size=12" -p "run:" -nb "${COLOR_STATE_BG}" -sb "${COLOR_STATE_FG}" -sf "${COLOR_STATE_BG}"
