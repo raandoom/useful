@@ -1,5 +1,26 @@
 #! /bin/sh
 
+# We prepend /usr/share/gnome since its defaults.list actually points 
+# to /etc so it is configurable.
+if [ -z "$XDG_DATA_DIRS" ]; then
+    XDG_DATA_DIRS=/usr/share/gnome:/usr/local/share/:/usr/share/
+else
+    XDG_DATA_DIRS=/usr/share/gnome:"$XDG_DATA_DIRS"
+fi
+export XDG_DATA_DIRS
+
+XDG_MENU_PREFIX=gnome-
+export XDG_MENU_PREFIX
+
+QT_QPA_PLATFORMTHEME=qgnomeplatform
+export QT_QPA_PLATFORMTHEME
+
+XDG_CURRENT_DESKTOP=GNOME
+export XDG_CURRENT_DESKTOP
+
+DESKTOP_SESSION=gnome
+export DESKTOP_SESSION
+
 xcompmgr &
 # Keyboard switch layout on Shift+CapsLock
 setxkbmap -rules evdev -model pc105 -layout us,ru -option -option "grp:shift_caps_toggle" &
@@ -11,15 +32,6 @@ xbattbar -a -c -i#005577 -o#222222 &
 feh --bg-fill /home/raandoom/Pictures/wall.jpg &
 # Cursor icon
 xsetroot -cursor_name left_ptr &
-
-# We prepend /usr/share/gnome since its defaults.list actually points 
-# to /etc so it is configurable.
-if [ -z "$XDG_DATA_DIRS" ]; then
-    XDG_DATA_DIRS=/usr/share/gnome:/usr/local/share/:/usr/share/
-else
-    XDG_DATA_DIRS=/usr/share/gnome:"$XDG_DATA_DIRS"
-fi
-export XDG_DATA_DIRS
 
 # Lemonbar
 . ${PANEL_CONFIG_PATH}/panel_colors
