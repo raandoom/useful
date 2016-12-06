@@ -39,3 +39,6 @@ bspc config click_to_focus          true
 bspc rule -a Gimp state=floating follow=on
 
 bspc config top_padding             0
+
+# Floating layout by default
+# bspc rule -a '*' state=floating

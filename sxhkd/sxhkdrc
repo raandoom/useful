@@ -36,7 +36,7 @@ XF86MonBrightness{Down,Up}
 
 # quit bspwm normally
 super + alt + Escape
-	bspc quit
+        ${XDG_CONFIG_HOME}/bspwm/bspwm_quit
 
 # close and kill
 super + {_,shift + }w

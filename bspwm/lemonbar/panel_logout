@@ -1,5 +1,3 @@
 #!/bin/bash
 
-. ${PANEL_CONFIG_PATH}/panel_colors
-
-bspc quit
+${XDG_CONFIG_HOME}/bspwm/bspwm_quit

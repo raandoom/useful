@@ -1,0 +1,8 @@
+#!/bin/bash
+
+if [ "$XDG_CURRENT_DESKTOP" == "GNOME" ]
+then
+    gnome-session-quit --no-prompt --logout
+else
+    bspc quit
+fi
