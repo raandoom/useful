@@ -1,0 +1,6 @@
+[Desktop Entry]
+Name[ru]=GNOME с bspwm
+Name=GNOME with bspwm
+Exec=/usr/share/xsessions/gnome-session-bspwm
+TryExec=gnome-session
+Type=Application

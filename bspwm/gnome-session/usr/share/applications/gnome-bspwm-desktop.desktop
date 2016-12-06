@@ -1,0 +1,12 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Encoding=UTF-8
+NoDisplay=true
+Name=gnome-bspwm-desktop
+TryExec=/usr/share/xsessions/gnome-bspwm-register
+Exec=/usr/share/xsessions/gnome-bspwm-register
+X-GNOME-WMName=bspwm Gnome
+X-GNOME-Autostart-Phase=WindowManager
+X-GNOME-Provides=windowmanager
+StartupWMClass=bspwm

@@ -1,0 +1,4 @@
+[GNOME Session]
+Name[ru]=GNOME с bspwm
+Name=GNOME with bspwm
+RequiredComponents=gnome-settings-daemon;gnome-bspwm-desktop;
