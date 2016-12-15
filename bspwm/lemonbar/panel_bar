@@ -6,7 +6,7 @@
 
 num_mon=$(bspc query -M | wc -l)
 
-logout_b="%{A:${PANEL_CONFIG_PATH}/panel_logout:}%{F$COLOR_STATE_BG}%{B$COLOR_STATE_FG} = %{B-}%{F-}%{A}"
+logout_b="%{A:${PANEL_CONFIG_PATH}/panel_logout:}%{F$COLOR_STATE_BG}%{B$COLOR_STATE_FG}%{T2}  %{B-}%{F-}%{A}"
 
 while read -r line ; do
 	case $line in
