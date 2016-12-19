@@ -1,9 +1,9 @@
 #!/bin/dash
 
-XDG_CONFIG_HOME="$HOME/.config"
+XDG_CONFIG_HOME="$HOME/.config/"
 export XDG_CONFIG_HOME
 
-PANEL_CONFIG_PATH="$HOME/.config/bspwm/lemonbar"
+PANEL_CONFIG_PATH="$XDG_CONFIG_HOME/bspwm/lemonbar/"
 export PANEL_CONFIG_PATH
 
 PANEL_FIFO=/tmp/panel-fifo
@@ -12,3 +12,6 @@ PANEL_FONT="-*-fixed-*-*-*-*-10-*-*-*-*-*-*-*"
 PANEL_ICON="-wuncon-siji-medium-r-normal-*-10-100-75-75-c-80-iso10646-1"
 PANEL_WM_NAME=bspwm_panel
 export PANEL_FIFO PANEL_HEIGHT PANEL_FONT PANEL_ICON PANEL_WM_NAME
+
+BSPWM_SCRIPTS_PATH=$XDG_CONFIG_HOME/bspwm/scripts/
+export BSPWM_SCRIPTS_PATH

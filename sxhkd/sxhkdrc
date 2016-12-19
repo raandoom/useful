@@ -22,10 +22,10 @@ super + l
 
 # volume
 XF86Audio{Lower,Raise}Volume
-        ${HOME}/.dwm/scripts/volume.sh {down,up}
+        ${BSPWM_SCRIPTS_PATH}/volume.sh {down,up}
 
 XF86AudioMute
-        ${HOME}/.dwm/scripts/volume.sh mute
+        ${BSPWM_SCRIPTS_PATH}/volume.sh mute
 
 XF86MonBrightness{Down,Up}
         ${HOME}/.dwm/scripts/backlight.sh {down,up}

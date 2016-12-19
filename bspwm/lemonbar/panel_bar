@@ -10,9 +10,13 @@ logout_b="%{A:${PANEL_CONFIG_PATH}/panel_logout:}%{F$COLOR_STATE_BG}%{B$COLOR_ST
 
 while read -r line ; do
 	case $line in
+                V*)
+                        # volume output
+                        vol="%{F$COLOR_STATE_BG}%{B$COLOR_STATE_FG}%{T2}  ${line#?} %{B-}%{F-}"
+                        ;;
 		S*)
 			# clock output
-			sys="%{F$COLOR_SYS_FG}%{B$COLOR_SYS_BG} ${line#?} %{B-}%{F-}"
+			sys="%{F$COLOR_SYS_FG}%{B$COLOR_SYS_BG}%{U$COLOR_STATE_FG}%{+u} ${line#?} %{-u}%{U-}%{B-}%{F-}"
 			;;
 		T*)
 			# xtitle output
@@ -87,5 +91,5 @@ while read -r line ; do
 			done
 			;;
 	esac
-	printf "%s\n" "%{l}${wm}%{c}${title}%{r}${sys}${logout_b}"
+	printf "%s\n" "%{l}${wm}%{c}${title}%{r}${vol}${sys}${logout_b}"
 done
