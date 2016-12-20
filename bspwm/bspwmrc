@@ -1,4 +1,4 @@
-#! /bin/sh
+#!/bin/dash
 
 xset +fp ${HOME}/.fonts
 xset fp rehash
@@ -19,6 +19,9 @@ xsetroot -cursor_name left_ptr &
 # Lemonbar
 . ${PANEL_CONFIG_PATH}/panel_colors
 ${PANEL_CONFIG_PATH}/panel &
+
+# Update volume indicator
+${BSPWM_SCRIPTS_PATH}/volume.sh get &
 
 # Tray
 # stalonetray -t true -geometry 1x1-175+0 &

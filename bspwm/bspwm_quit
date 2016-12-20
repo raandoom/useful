@@ -1,6 +1,6 @@
-#!/bin/bash
+#!/bin/dash
 
-if [ "$XDG_CURRENT_DESKTOP" == "GNOME" ]
+if [ "${XDG_CURRENT_DESKTOP}" = "GNOME" ]
 then
     gnome-session-quit --no-prompt --logout
 else
