@@ -12,7 +12,16 @@ while read -r line ; do
 	case ${line} in
                 V*)
                         # volume output
-                        vol="%{F${COLOR_STATE_BG}}%{B${COLOR_STATE_FG}}%{T2}  ${line#?} %{B-}%{F-}"
+                        vol_state=$(echo ${line#?} | awk '{print $1}' )
+                        vol_value=$(echo ${line#?} | awk '{print $2}' )
+                        if [ "${vol_state}" = "on" ]
+                        then
+                        vol_icon=
+                        elif [ "${vol_state}" = "off" ]
+                        then
+                        vol_icon=
+                        fi
+                        vol="%{F${COLOR_STATE_BG}}%{B${COLOR_STATE_FG}}%{T2} ${vol_icon}${vol_value} %{B-}%{F-}"
                         ;;
 		S*)
 			# clock output

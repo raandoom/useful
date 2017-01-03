@@ -3,7 +3,7 @@
 xset +fp ${HOME}/.fonts
 xset fp rehash
 
-xcompmgr -c -f -C -F -D 20 -I 0.1 -O 0.1 &
+compton -c -f -C -F -D 20 -I 0.1 -O 0.1 &
 
 # Keyboard switch layout on Shift+CapsLock
 setxkbmap -rules evdev -model pc105 -layout us,ru -option -option "grp:shift_caps_toggle" &
