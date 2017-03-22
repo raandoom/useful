@@ -45,6 +45,8 @@ Plugin 'bling/vim-airline'
 Plugin 'rust-lang/rust.vim'
 Plugin 'racer-rust/vim-racer'
 
+Plugin 'Valloric/YouCompleteMe'
+
 " syntax checker
 Plugin 'scrooloose/syntastic'
 
@@ -75,12 +77,16 @@ colorscheme molokai
 let g:airline_powerline_fonts=1
 set laststatus=2
 
+let parent = $HOME
 " rust
 set hidden
-let g:racer_cmd="/opt/rust/racer/target/release/racer"
-let $RUST_SRC_PATH="/opt/rust/src"
+let g:racer_cmd=parent."/.cargo/bin/racer"
+let $RUST_SRC_PATH=parent."/.rustup/toolchains/stable-i686-unknown-linux-gnu/lib/rustlib/src/rust/src"
 let g:racer_experimental_completer=1
 let g:rust_fold=1
+
+let g:ycm_rust_src_path=parent."/.rustup/toolchains/stable-i686-unknown-linux-gnu/lib/rustlib/src/rust/src"
+
 
 " syntastic
 set statusline+=%#warningmsg#

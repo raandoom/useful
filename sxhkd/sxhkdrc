@@ -10,12 +10,17 @@ super + Return
 super + space
         ${XDG_CONFIG_HOME}/bspwm/dmenu_custom
 
+# window list
+super + r
+        rofi -normal-window -show window &
+
 # make sxhkd reload its configuration files:
 super + Escape
 	pkill -USR1 -x sxhkd
 
-super + l
-        slock
+# super + l
+#         slock
+
 #
 # functional keys
 #
